@@ -6,7 +6,8 @@ var autoprefixer = require('gulp-autoprefixer'),
     cssnano = require('gulp-cssnano'),
     gulp = require('gulp'),
     rename = require('gulp-rename'),
-    sass = require('gulp-ruby-sass');
+    // sass = require('gulp-ruby-sass');
+    sass = require('gulp-sass');
 
 gulp.task('styles', ['styles:build'], function() {
     return gulp.src([
@@ -17,7 +18,8 @@ gulp.task('styles', ['styles:build'], function() {
 });
 
 gulp.task('styles:build', function() {
-    return sass('src/main/styles/neo4jd3.scss', { style: 'expanded' })
+    return gulp.src('src/main/styles/neo4jd3.scss')
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest(conf.paths.docs + '/css'))
         .pipe(rename({ suffix: '.min' }))
