@@ -210,18 +210,18 @@ function Neo4jD3(_selector, _options) {
                    .style('stroke', function(d) {
                        return options.nodeOutlineFillColor ? class2darkenColor(options.nodeOutlineFillColor) : class2darkenColor(d.labels[0]);
                    })
-                   .append('title').text(function(d) {
-                       return toString(d);
-                   });
+                //    .append('title').text(function(d) {
+                //        return toString(d);
+                //    });
     }
 
     function appendRingToNode(node) {
         return node.append('circle')
                    .attr('class', 'ring')
                    .attr('r', options.nodeRadius * 1.16)
-                   .append('title').text(function(d) {
-                       return toString(d);
-                   });
+                //    .append('title').text(function(d) {
+                //        return toString(d);
+                //    });
     }
 
     function appendTextToNode(node) {
